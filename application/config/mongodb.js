@@ -6,8 +6,8 @@
  * @Date 23-10-2013
  */
 
-module.exports = {"dbHost":"localhost", 
+module.exports = {"dbHost":"127.0.0.1", 
 "dbPort":"", 
-"dbName":"cubetBoard", 
+"dbName":"myyna-behrad", 
 "dbUser":"", 
 "dbPass":""}
