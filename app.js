@@ -39,12 +39,20 @@ var exphbs  = require('express3-handlebars');
 var helmet  = require('helmet');
 var fs = require('fs');
 var hbs = require('handlebars');
+var i18n = require('i18n');
 var engines = require('consolidate');
 var io = require('socket.io');
 global.app = express();
 
 global.sleekConfig = {};
 require(path.join(__dirname,'application/config/config.js'));
+
+i18n.configure({
+    locales: ['en', 'fa'],
+    cookie: 'locale',
+    directory: path.join(__dirname, 'application/locales')
+});
+
 app.configure(function(){
     app.set('env', sleekConfig.env);
     // all environments
@@ -54,7 +62,8 @@ app.configure(function(){
     app.set('view engine', 'handlebars');
     app.engine('html',  exphbs({defaultLayout: 'default',
                                 layoutsDir: path.join(__dirname, 'application/layouts/'), extname:".html"})
-                ); 
+                );
+    app.use(i18n.init);
     app.use(express.favicon(path.join(__dirname, 'public/favicon.ico'))); 
     app.use(express.logger('dev'));
     app.use(express.json());

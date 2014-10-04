@@ -27,11 +27,11 @@
         <li class="dropdown right-drop-down cubet_plus">
          <a href="#" class="dropdown-toggle right-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-plus"></span></a>
           <ul class="dropdown-menu">
-              <li><a href="/addpin" data-toggle="modal" data-target="#myModal2" id="addpin">Add Pin</a></li>
-            <li><a href="/mostrepin" >Most Repinned</a></li>
-            <li><a href="/mostlike"  >Most Liked</a></li>
-            <li><a href="/addboard" data-toggle="modal" data-target="#myModal4" >Create Board</a></li>
-            <li><a href="/boards"   >List Boards</a></li>
+              <li><a href="/addpin" data-toggle="modal" data-target="#myModal2" id="addpin">{{__ "Add Pin"}}</a></li>
+            <li><a href="/mostrepin" >{{__ "Most Repinned"}}</a></li>
+            <li><a href="/mostlike"  >{{__ "Most Liked"}}</a></li>
+            <li><a href="/addboard" data-toggle="modal" data-target="#myModal4" >{{__ "Create Board"}}</a></li>
+            <li><a href="/boards"   >{{__ "List Boards"}}</a></li>
             
           </ul>
         </li>
@@ -42,16 +42,16 @@
         <span class="user-info">{{loiginuser}}</span>
         </a>
           <ul class="dropdown-menu user_add_drop">
-              <li><a   href="/user/{{loggeduser_id}}">Profile</a></li>
-            <li><a  data-target="#myModal3" data-toggle="modal" href="/settings">Settings</a></li>           
-            <li><a id="logoutButton" href="/logout">Logout</a></li>
+              <li><a   href="/user/{{loggeduser_id}}">{{__ "Home"}}</a></li>
+            <li><a  data-target="#myModal3" data-toggle="modal" href="/settings">{{__ "Settings"}}</a></li>
+            <li><a id="logoutButton" href="/logout">{{__ "Logout"}}</a></li>
           </ul>
         {{/if}} 
         </li>
         <li class="dropdown right-drop-down cubet_commment"> <a id="comment_display"  href="#" class="dropdown-toggle notify" data-toggle="dropdown">
       <span id="comment_section"  class="glyphicon  {{#unless notification_count}} glyphicon-comment {{/unless}}">{{#if notification_count}} {{notification_count}}{{/if}}</span></a>
           <ul class="dropdown-menu cubet_comment_sub">
-         {{#if notification_count}} {{else}}<li><a id="new_notify" href="#"> No new notifications</a></li>{{/if}}
+         {{#if notification_count}} {{else}}<li><a id="new_notify" href="#"> {{__ "No new notifications"}}</a></li>{{/if}}
             {{#each notifications}}
             <li><a class="notifi_li" href="javascript:;">{{{notification}}}</a></li>
             {{/each}}
@@ -70,7 +70,7 @@
 
 <a href="javascript:;" class="close"></a>
 <ul>
-<li class="active"><a href="/pins">Home</a></li>
+<li class="active"><a href="/pins">{{__ "Home"}}</a></li>
 </ul>
 <ul class="nav_scoll">
 {{#each category}}
