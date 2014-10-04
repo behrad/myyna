@@ -302,7 +302,7 @@ var pinController = {
        
         webshot(url, DEFINES.IMAGE_PATH_REL + time + '.png', webshot_options, function(err) {
             if (err)
-                console.log(err)
+                console.log("webshot error ", err)
                
             im.identify(DEFINES.IMAGE_PATH_REL + time + '.png', function(err, features) {
 
@@ -539,7 +539,7 @@ var pinController = {
             q: url
         }, function(err, data) {
             if (err instanceof Error) {
-                console.log(err)
+                console.log( "youtube err... ", err)
             } else {
 
 
@@ -759,8 +759,8 @@ var pinController = {
                 var thumbler = require('video-thumb');
                 var thumbPath = path.join(DEFINES.VIDEO_PATH_REL, 'thumb/');
                 var thumb = time + '.png';
-                thumbler.extract(newPath, thumbPath + thumb, '00:00:08', '300x200', function() {
-                    console.log('snapshot saved to snapshot.png (300x200) with a frame at 00:00:22');
+                thumbler.extract(newPath, thumbPath + thumb, '00:00:08', '300x200', function( err ) {
+                    console.log('snapshot saved to snapshot.png (300x200) with a frame at 00:00:22 ', err );
                 });
 
 

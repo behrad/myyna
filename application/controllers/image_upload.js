@@ -28,9 +28,9 @@ var boardModel = system.getModel('board');
 system.loadHelper('myhelper');
 
 var 
-maxImageSize = 1,//size in Mb
-maxAudioSize = 5,
-maxVideoSize = 10,
+maxImageSize = 5,//size in Mb
+maxAudioSize = 50,
+maxVideoSize = 100,
 // supported formats
 validImage   = ['image/jpeg','image/pjpeg','image/png','image/gif'],
 validAudio   = ['audio/mpeg','audio/mp3','audio/x-mpeg','audio/x-mp3','audio/mpeg3',
@@ -278,8 +278,8 @@ var imageController = {
                                 var exec;
                                 exec = require('child_process').exec;
                                 
-                                exec('ffmpeg -ss 00:00:04 -i ' + newPath + ' -r 1 -s 300x200 -f image2 -vframes 1 ' + thumbPath + thumb, function() {
-                                    console.log('snapshot saved to '+ thumbPath + thumb +' (300x200) with a frame at 00:00:04');
+                                exec('ffmpeg -ss 00:00:04 -i ' + newPath + ' -r 1 -s 300x200 -f image2 -vframes 1 ' + thumbPath + thumb, function( err ) {
+                                    console.log('snapshot saved to '+ thumbPath + thumb +' (300x200) with a frame at 00:00:04 ', err );
                                 });
 
 
